@@ -1,0 +1,3 @@
+#!/bin/bash
+/show/listecho "Stop mjpegstreamer service" $ERR
+supervisorctl stop mjpegstreamer

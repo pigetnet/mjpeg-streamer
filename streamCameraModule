@@ -1,0 +1,19 @@
+#!/bin/bash
+/show/description "mjpg streamer with camera module"
+/show/listecho $(cat /etc/hostname)":8080" $OK
+/show/listecho $(cat /etc/hostname)".local:8080" $OK
+/show/listecho $(ipAddress)":8080" $OK
+/show/listecho "Press CTRL-C to stop" $WARN
+
+
+allargs=$('/opt/piget/camera/python/readCameraJson.py' camera_pi.json)
+
+#http://unix.stackexchange.com/questions/163898/how-to-assign-a-string-value-to-a-variable-over-multiple-lines-while-indented
+outputArgs=$(echo "${allargs//   /}"|head -n1)
+inputArgs=$(echo "${allargs//   /}"|tail -n -1)
+
+if [ $? -eq 0 ];then
+	/opt/mjpg-streamer/mjpg-streamer-experimental/mjpg_streamer -o "/opt/mjpg-streamer/mjpg-streamer-experimental/output_http.so -w /usr/www $outputArgs" -i "input_raspicam.so $inputArgs"
+else
+	/show/listecho "ERROR IN CONFIG FILE: $args" $ERR
+fi

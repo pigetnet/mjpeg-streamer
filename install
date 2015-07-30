@@ -1,0 +1,36 @@
+#!/bin/bash
+# Based on the mjpg-streamer by jacksonliam
+# For more information
+# https://github.com/jacksonliam/mjpg-streamer
+
+/show/description "Install mjpeg-streamer"
+
+/show/listecho "Install prerequisites" $OK
+/system/install libv4l-dev
+/system/install libjpeg8-dev
+/system/install imagemagick
+/system/install cmake
+
+/show/listecho "Link library videodev2 to videodev" $OK
+ln -sv /usr/include/linux/videodev2.h /usr/include/linux/videodev.h
+
+/show/listecho "Download mjpeg-streamer from svn to /opt/mjpg-streamer" $OK
+
+gitcloner jacksonliam/mjpg-streamer /opt/mjpg-streamer
+cd /opt/mjpg-streamer/mjpg-streamer-experimental
+make clean all
+make DESTDIR=/usr install
+mkdir /opt/user/config/camera
+
+/show/listecho "Copy configuration" $OK
+if [ -z /boot/piget/config/camera/camera_pi.json ];then
+	cp -v /boot/piget/config/camera/camera_pi.json /opt/user/config/camera/camera_pi.json
+else
+	cp -v /opt/piget/camera/default/camera_pi.json /opt/user/config/camera/camera_pi.json
+fi
+
+if [ -z /boot/piget/config/camera/camera_usb.json ];then
+	cp -v /boot/piget/config/camera/camera_usb.json /opt/user/config/camera/camera_usb.json
+else
+	cp -v /opt/piget/camera/default/camera_usb.json /opt/user/config/camera/camera_usb.json
+fi
