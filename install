@@ -26,11 +26,11 @@ mkdir /opt/user/config/camera
 if [ -z /boot/piget/config/camera/camera_pi.json ];then
 	cp -v /boot/piget/config/camera/camera_pi.json /opt/user/config/camera/camera_pi.json
 else
-	cp -v /opt/piget/camera/default/camera_pi.json /opt/user/config/camera/camera_pi.json
+	cp -v /opt/piget/mjpeg-streamer/default/camera_pi.json /opt/user/config/camera/camera_pi.json
 fi
 
 if [ -z /boot/piget/config/camera/camera_usb.json ];then
 	cp -v /boot/piget/config/camera/camera_usb.json /opt/user/config/camera/camera_usb.json
 else
-	cp -v /opt/piget/camera/default/camera_usb.json /opt/user/config/camera/camera_usb.json
+	cp -v /opt/piget/mjpeg-streamer/default/camera_usb.json /opt/user/config/camera/camera_usb.json
 fi
