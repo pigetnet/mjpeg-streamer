@@ -16,7 +16,7 @@ ln -sv /usr/include/linux/videodev2.h /usr/include/linux/videodev.h
 
 /show/listecho "Download mjpeg-streamer from svn to /opt/mjpg-streamer" $OK
 
-gitcloner jacksonliam/mjpg-streamer /opt/mjpg-streamer
+/system/gitcloner jacksonliam/mjpg-streamer /opt/mjpg-streamer
 cd /opt/mjpg-streamer/mjpg-streamer-experimental
 make clean all
 make DESTDIR=/usr install
