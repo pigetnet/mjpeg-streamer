@@ -2,7 +2,7 @@
 import json
 import os.path
 import sys
-default_conf = '/opt/piget/camera/default/'
+default_conf = '/opt/piget/mjpeg-streamer/default/'
 user_conf = '/opt/user/config/camera/'
 default_conf = default_conf + str(sys.argv[1])
 user_conf = user_conf + str(sys.argv[1])

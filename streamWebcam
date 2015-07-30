@@ -2,10 +2,10 @@
 /show/description "mjpg streamer with webcam"
 /show/listecho $(cat /etc/hostname)":8080"
 /show/listecho $(cat /etc/hostname)".local:8080"
-/show/listecho $(ipAddress)":8080"
-/show/listecho messagebox "Press CTRL-C to stop" $WARN
+/show/listecho $(/show/ipAddress)":8080"
+/show/listecho "Press CTRL-C to stop" $WARN
 
-allargs=$("/opt/piget/camera/python/readCameraJson.py" camera_usb.json)
+allargs=$("/opt/piget/mjpeg-streamer/python/readCameraJson.py" camera_usb.json)
 
 #http://unix.stackexchange.com/questions/163898/how-to-assign-a-string-value-to-a-variable-over-multiple-lines-while-indented
 outputArgs=$(echo "${allargs//   /}"|head -n1)

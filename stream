@@ -3,10 +3,9 @@ trap "kill -- -$$" EXIT
 . /opt/piget/core/install/extendPath
 /show/listecho "Autodetect camera" $OK
 cameraState=$(vcgencmd get_camera)
-vcgencmd get_camera
 killall -2 mjpg_streamer
 if [[ $cameraState == "supported=1 detected=1" ]];then
-	/do/camera/streamCameraModule
+	/do/mjpeg-streamer/streamCameraModule
 else
-	/do/camera/streamWebcam
+	/do/mjpeg-streamer/streamWebcam
 fi

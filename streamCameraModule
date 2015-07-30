@@ -6,7 +6,7 @@
 /show/listecho "Press CTRL-C to stop" $WARN
 
 
-allargs=$('/opt/piget/camera/python/readCameraJson.py' camera_pi.json)
+allargs=$('/opt/piget/mjpeg-streamer/python/readCameraJson.py' camera_pi.json)
 
 #http://unix.stackexchange.com/questions/163898/how-to-assign-a-string-value-to-a-variable-over-multiple-lines-while-indented
 outputArgs=$(echo "${allargs//   /}"|head -n1)
