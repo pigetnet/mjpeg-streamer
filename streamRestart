@@ -1,0 +1,5 @@
+#!/bin/bash
+/show/listecho "Restart mjpegstreamer service" $OK
+supervisorctl stop mjpegstreamer
+supervisorctl start mjpegstreamer
+

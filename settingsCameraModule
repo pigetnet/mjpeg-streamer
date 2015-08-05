@@ -1,0 +1,3 @@
+#!/bin/bash
+nano /opt/user/config/camera/camera_pi.json
+/do/mjpeg-streamer/streamRestart
