@@ -1,0 +1,34 @@
+#!/bin/bash
+#Experimental
+/show/description "EXPERIMENTAL"
+/show/listecho "1 = file"
+/show/listecho "2 = fps"
+/show/listecho "3 = time in s"
+
+file=$1
+fps=$2
+timelimit=$3
+
+if [ -e $file ];then
+	rm -vf $file
+fi
+
+if [ $# -eq 3 ];then
+	avconv -r $2 -f mjpeg -i http://127.0.0.1:8080/?action=stream $1 -timelimit $3
+fi
+
+if [ $# -eq 2 ];then
+	avconv -r $2 -f mjpeg -i http://127.0.0.1:8080/?action=stream $1 -timelimit 3
+fi
+
+if [ $# -eq 1 ];then
+	avconv -f mjpeg -i http://127.0.0.1:8080/?action=stream $1 -timelimit 3
+fi
+
+if [ $# -eq 0 ];then
+	if [ -e /user/video.avi ];then
+        	rm -vf /user/video.avi
+	fi
+	avconv -f mjpeg -i http://127.0.0.1:8080/?action=stream /user/video.avi -timelimit 3
+fi
+
