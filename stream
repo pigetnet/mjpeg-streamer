@@ -1,6 +1,5 @@
 #!/bin/bash
 trap "kill -- -$$" EXIT
-. /opt/piget/core/install/extendPath
 /show/listecho "Autodetect camera" $OK
 cameraState=$(vcgencmd get_camera)
 killall -2 mjpg_streamer

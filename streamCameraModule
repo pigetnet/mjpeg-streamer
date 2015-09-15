@@ -12,6 +12,7 @@ allargs=$('/opt/piget/mjpeg-streamer/python/readCameraJson.py' camera_pi.json)
 outputArgs=$(echo "${allargs//   /}"|head -n1)
 inputArgs=$(echo "${allargs//   /}"|tail -n -1)
 
+
 if [ $# -eq 1 ];then
 	port="-p $1"
 else
@@ -20,9 +21,6 @@ fi
 
 if [ $? -eq 0 ];then
 	echo "/opt/mjpg-streamer/mjpg-streamer-experimental/mjpg_streamer -o /opt/mjpg-streamer/mjpg-streamer-experimental/output_http.so $port -w /usr/www $outputArgs -i input_raspicam.so $inputArgs"
-	/show/linebreak
-	/show/linebreak
-	/show/linebreak
 	/opt/mjpg-streamer/mjpg-streamer-experimental/mjpg_streamer -o "/opt/mjpg-streamer/mjpg-streamer-experimental/output_http.so -w /usr/www $outputArgs $port" -i "input_raspicam.so $inputArgs"
 else
 	/show/listecho "ERROR IN CONFIG FILE: $args" $ERR

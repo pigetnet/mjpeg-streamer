@@ -1,4 +1,5 @@
 #!/bin/bash
-args=$(/opt/piget/mjpeg-streamer/python/readCameraCredentials.py)
-
-curl  -o "$1" $args http://127.0.0.1:8080/?action=snapshot 
+args=$(/opt/piget/mjpeg-streamer/python/readPassword.py)
+if [ $# -eq 1 ]; then
+  curl  -o "$1" $args http://127.0.0.1:8080/?action=snapshot
+fi
