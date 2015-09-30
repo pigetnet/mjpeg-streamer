@@ -3,7 +3,7 @@
 /system/install supervisor
 cat <<\EOF > /etc/supervisor/conf.d/mjpegstreamer.conf
 [program:mjpegstreamer]
-command=/opt/piget/mjpeg-streamer/stream
+command=/do/mjpeg-streamer/stream
 autostart=true
 autorestart=true
 stdout_logfile=/var/log/mjpegstreamer.log

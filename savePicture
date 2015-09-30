@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ $# -eq 1 ]; then
- 	args=$(/opt/piget/mjpeg-streamer/python/readPassword.py)
+ 	args=$(/do/mjpeg-streamer/python/readPassword.py)
 	curl -o "$1" $args http://127.0.0.1:8080/?action=snapshot
 	/show/listecho "Saving picture to $1"
 else
