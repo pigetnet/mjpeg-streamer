@@ -28,9 +28,9 @@ if choose_conf is not False:
         with open(choose_conf) as config_file:
             config = json.load(config_file)
             for k, v in config.items():
-                #if(k == "c"):
+                # if(k == "c"):
                 #    pre_args = pre_args + "--" + str(k) + " " + str(v) + " "
-                #else:
+                # else:
                 args = args + "--" + str(k) + " " + str(v) + " "
     except ValueError as e:
         print e

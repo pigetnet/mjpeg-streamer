@@ -20,7 +20,6 @@ else
 fi
 
 if [ $? -eq 0 ];then
-	echo "/opt/mjpg-streamer/mjpg-streamer-experimental/mjpg_streamer -o /opt/mjpg-streamer/mjpg-streamer-experimental/output_http.so $port -w /usr/www $outputArgs -i input_raspicam.so $inputArgs"
 	/opt/mjpg-streamer/mjpg-streamer-experimental/mjpg_streamer -o "/opt/mjpg-streamer/mjpg-streamer-experimental/output_http.so -w /usr/www $outputArgs $port" -i "input_raspicam.so $inputArgs"
 else
 	/show/listecho "ERROR IN CONFIG FILE: $args" $ERR
