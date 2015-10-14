@@ -16,3 +16,4 @@ if [ $? -eq 0 ];then
 else
 	echo "ERROR IN CONFIG FILE: $args"
 fi
+#echo /opt/mjpg-streamer/mjpg-streamer-experimental/mjpg_streamer -o "/opt/mjpg-streamer/mjpg-streamer-experimental/output_http.so -w /usr/www $outputArgs" -i "input_uvc.so $inputArgs"
